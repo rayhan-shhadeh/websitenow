@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="description" content="موقعك الآن - إطلاق موقعك الاحترافي خلال 72 ساعة فقط بسعر 333$ | Palestine's #1 Website Agency"/>
+<title>موقعك الآن | Your Site. Now.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#0B1622;
+  --navy:#0B3C5D;
+  --green:#00A86B;
+  --green-lite:#00C97F;
+  --gold:#F5A623;
+  --offwhite:#F0F4F8;
+  --card:#ffffff;
+  --border:rgba(11,60,93,0.12);
+  --text:#1a2a3a;
+  --muted:#5a7080;
+  --radius:14px;
+  --shadow:0 8px 40px rgba(11,60,93,0.10);
+  --wa:#25D366;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Cairo',sans-serif;
+  background:var(--offwhite);
+  color:var(--text);
+  overflow-x:hidden;
+}
+body.en{direction:ltr;text-align:left}
+body.en *{font-family:'Space Grotesk',sans-serif}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-thumb{background:var(--green);border-radius:4px}
+
+/* ─── NOTIFICATION TOAST ─── */
+#toast{
+  position:fixed;bottom:100px;right:20px;
+  background:#fff;border:1px solid var(--border);
+  border-radius:12px;padding:12px 16px;
+  display:flex;align-items:center;gap:10px;
+  box-shadow:0 8px 30px rgba(0,0,0,.12);
+  z-index:9999;min-width:240px;max-width:300px;
+  transform:translateX(120%);transition:transform .5s cubic-bezier(.34,1.56,.64,1);
+  font-size:13px;
+}
+body.en #toast{right:auto;left:20px;transform:translateX(-120%)}
+#toast.show{transform:translateX(0)}
+.toast-dot{width:8px;height:8px;border-radius:50%;background:var(--green);flex-shrink:0;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+/* ─── HEADER ─── */
+header{
+  position:fixed;top:0;width:100%;z-index:1000;
+  padding:0 5%;
+  background:rgba(11,22,34,.92);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(255,255,255,.08);
+  display:flex;justify-content:space-between;align-items:center;
+  height:70px;
+}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo-mark{
+  width:38px;height:38px;border-radius:10px;
+  background:linear-gradient(135deg,var(--green),var(--navy));
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;font-weight:900;color:#fff;
+}
+.logo-text{font-size:18px;font-weight:700;color:#fff;letter-spacing:-.3px}
+nav{display:flex;align-items:center;gap:6px}
+.nav-link{color:rgba(255,255,255,.7);text-decoration:none;padding:6px 14px;border-radius:8px;font-size:14px;transition:.2s}
+.nav-link:hover{color:#fff;background:rgba(255,255,255,.1)}
+.lang-btn{
+  background:transparent;border:1px solid rgba(255,255,255,.25);
+  color:#fff;padding:6px 14px;border-radius:8px;cursor:pointer;
+  font-size:13px;font-family:inherit;transition:.2s;
+}
+.lang-btn:hover{background:rgba(255,255,255,.1)}
+.header-cta{
+  background:var(--green);color:#fff;
+  padding:8px 20px;border-radius:8px;
+  text-decoration:none;font-weight:600;font-size:14px;
+  transition:.2s;white-space:nowrap;
+}
+.header-cta:hover{background:var(--green-lite);transform:translateY(-1px)}
+
+/* ─── HERO ─── */
+.hero{
+  min-height:100vh;
+  background:var(--ink);
+  position:relative;overflow:hidden;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;padding:120px 5% 80px;
+}
+.hero-grid{
+  position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(0,168,107,.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,168,107,.06) 1px,transparent 1px);
+  background-size:60px 60px;
+}
+.hero-glow{
+  position:absolute;
+  width:600px;height:600px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(0,168,107,.15) 0%,transparent 70%);
+  top:50%;left:50%;transform:translate(-50%,-50%);
+  animation:breathe 4s ease-in-out infinite;
+}
+@keyframes breathe{0%,100%{transform:translate(-50%,-50%) scale(1)}50%{transform:translate(-50%,-50%) scale(1.1)}}
+.badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(0,168,107,.15);border:1px solid rgba(0,168,107,.3);
+  color:var(--green);padding:6px 16px;border-radius:100px;
+  font-size:13px;font-weight:600;margin-bottom:28px;
+  animation:fadeDown .8s ease both;
+}
+.badge-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 1.5s infinite}
+.hero h1{
+  font-size:clamp(38px,7vw,80px);
+  font-weight:900;color:#fff;
+  line-height:1.1;margin-bottom:24px;
+  animation:fadeUp .8s .2s ease both;
+}
+.hero h1 .accent{
+  background:linear-gradient(135deg,var(--green),#00e5a0);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero-sub{
+  font-size:clamp(16px,2.5vw,22px);
+  color:rgba(255,255,255,.65);max-width:640px;
+  margin:0 auto 40px;line-height:1.7;
+  animation:fadeUp .8s .3s ease both;
+}
+.hero-ctas{
+  display:flex;align-items:center;justify-content:center;
+  gap:14px;flex-wrap:wrap;
+  animation:fadeUp .8s .4s ease both;
+}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--green);color:#fff;
+  padding:16px 32px;border-radius:12px;
+  text-decoration:none;font-weight:700;font-size:17px;
+  transition:.3s;box-shadow:0 0 30px rgba(0,168,107,.35);
+}
+.btn-primary:hover{background:var(--green-lite);transform:translateY(-2px);box-shadow:0 0 40px rgba(0,168,107,.5)}
+.btn-secondary{
+  display:inline-flex;align-items:center;gap:8px;
+  background:transparent;color:#fff;
+  border:1px solid rgba(255,255,255,.25);
+  padding:16px 32px;border-radius:12px;
+  text-decoration:none;font-weight:600;font-size:17px;
+  transition:.3s;
+}
+.btn-secondary:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.4)}
+.urgency-row{
+  display:flex;align-items:center;justify-content:center;
+  gap:20px;margin-top:28px;flex-wrap:wrap;
+  animation:fadeUp .8s .5s ease both;
+}
+.urgency-pill{
+  display:flex;align-items:center;gap:6px;
+  color:rgba(255,255,255,.6);font-size:13px;
+}
+.urgency-pill svg{flex-shrink:0}
+.countdown-box{
+  background:rgba(255,255,255,.05);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:12px;padding:16px 30px;margin-top:30px;
+  animation:fadeUp .8s .6s ease both;
+  display:inline-block;
+}
+.countdown-label{font-size:12px;color:rgba(255,255,255,.5);margin-bottom:8px;letter-spacing:2px;text-transform:uppercase}
+.countdown-timer{
+  display:flex;align-items:center;gap:4px;
+  color:#fff;font-size:28px;font-weight:700;
+}
+.countdown-sep{opacity:.5;margin:0 2px}
+.hero-scroll{
+  position:absolute;bottom:30px;left:50%;transform:translateX(-50%);
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+}
+.scroll-text{font-size:11px;color:rgba(255,255,255,.4);letter-spacing:2px}
+.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,rgba(255,255,255,.3),transparent)}
+
+/* ─── STATS TICKER ─── */
+.stats-bar{
+  background:var(--navy);
+  padding:0;overflow:hidden;
+  border-top:1px solid rgba(0,168,107,.2);
+  border-bottom:1px solid rgba(0,168,107,.2);
+}
+.ticker-wrap{
+  display:flex;width:max-content;
+  animation:ticker 25s linear infinite;
+}
+.ticker-wrap:hover{animation-play-state:paused}
+.ticker-item{
+  display:flex;align-items:center;gap:8px;
+  padding:14px 40px;color:rgba(255,255,255,.8);
+  font-size:14px;white-space:nowrap;
+  border-right:1px solid rgba(255,255,255,.08);
+}
+.ticker-item strong{color:var(--green)}
+@keyframes ticker{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ─── SECTIONS ─── */
+.section{padding:90px 5%;max-width:1200px;margin:0 auto}
+.section-tag{
+  display:inline-block;
+  background:rgba(0,168,107,.1);color:var(--green);
+  padding:4px 14px;border-radius:100px;font-size:13px;
+  font-weight:600;margin-bottom:14px;
+}
+.section-title{
+  font-size:clamp(26px,4vw,44px);font-weight:800;
+  color:var(--navy);margin-bottom:14px;line-height:1.2;
+}
+.section-sub{font-size:17px;color:var(--muted);max-width:580px;line-height:1.7}
+.section-header{margin-bottom:50px}
+
+/* ─── FEATURES ─── */
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.feature-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:28px;
+  transition:.3s;position:relative;overflow:hidden;
+}
+.feature-card::before{
+  content:'';position:absolute;top:0;right:0;
+  width:80px;height:80px;
+  background:radial-gradient(circle at top right,rgba(0,168,107,.12),transparent 70%);
+}
+.feature-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:rgba(0,168,107,.3)}
+.feature-icon{
+  width:48px;height:48px;border-radius:12px;
+  background:rgba(0,168,107,.1);
+  display:flex;align-items:center;justify-content:center;
+  font-size:22px;margin-bottom:16px;
+}
+.feature-card h3{font-size:17px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.feature-card p{font-size:14px;color:var(--muted);line-height:1.7}
+
+/* ─── STATS GRID ─── */
+.stats-section{background:var(--navy);padding:70px 5%}
+.stats-inner{max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2px}
+.stat-card{
+  text-align:center;padding:40px 20px;
+  border-right:1px solid rgba(255,255,255,.08);
+}
+.stat-card:last-child{border-right:none}
+.stat-num{
+  font-size:52px;font-weight:900;
+  background:linear-gradient(135deg,#fff,var(--green));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;line-height:1;margin-bottom:8px;
+}
+.stat-label{color:rgba(255,255,255,.6);font-size:14px}
+
+/* ─── PORTFOLIO ─── */
+.portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.portfolio-card{
+  background:var(--navy);border-radius:var(--radius);overflow:hidden;
+  transition:.4s;cursor:pointer;position:relative;
+}
+.portfolio-card:hover{transform:translateY(-6px);box-shadow:0 20px 60px rgba(11,60,93,.3)}
+.portfolio-img{
+  height:200px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:50px;position:relative;overflow:hidden;
+}
+.portfolio-img::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to bottom,transparent 50%,rgba(11,22,34,.8));
+}
+.portfolio-tag{
+  position:absolute;top:12px;right:12px;
+  background:rgba(0,168,107,.9);color:#fff;
+  padding:4px 10px;border-radius:6px;font-size:12px;font-weight:600;
+  z-index:1;
+}
+body.en .portfolio-tag{right:auto;left:12px}
+.portfolio-info{padding:20px}
+.portfolio-info h3{color:#fff;font-size:16px;font-weight:700;margin-bottom:6px}
+.portfolio-info p{color:rgba(255,255,255,.6);font-size:13px}
+.portfolio-view{
+  display:inline-flex;align-items:center;gap:6px;
+  color:var(--green);font-size:13px;font-weight:600;margin-top:12px;
+  text-decoration:none;
+}
+
+/* ─── PRICING ─── */
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;align-items:start}
+.price-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:32px;
+  position:relative;transition:.3s;
+}
+.price-card.featured{
+  background:var(--navy);
+  border:2px solid var(--green);
+  transform:scale(1.04);
+  box-shadow:0 20px 60px rgba(0,168,107,.2);
+}
+.price-card:hover:not(.featured){transform:translateY(-4px);box-shadow:var(--shadow)}
+.popular-badge{
+  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+  background:var(--green);color:#fff;
+  padding:4px 16px;border-radius:100px;font-size:12px;font-weight:700;
+  white-space:nowrap;
+}
+.plan-name{
+  font-size:15px;font-weight:700;
+  margin-bottom:6px;text-transform:uppercase;letter-spacing:1px;
+}
+.price-card.featured .plan-name{color:rgba(255,255,255,.7)}
+.plan-price{
+  font-size:52px;font-weight:900;color:var(--navy);
+  line-height:1;margin-bottom:4px;
+}
+.price-card.featured .plan-price{color:#fff}
+.plan-period{font-size:14px;color:var(--muted);margin-bottom:20px}
+.price-card.featured .plan-period{color:rgba(255,255,255,.5)}
+.plan-divider{height:1px;background:var(--border);margin-bottom:20px}
+.price-card.featured .plan-divider{background:rgba(255,255,255,.1)}
+.plan-feature{
+  display:flex;align-items:flex-start;gap:10px;
+  font-size:14px;color:var(--text);margin-bottom:12px;
+}
+.price-card.featured .plan-feature{color:rgba(255,255,255,.85)}
+.check{
+  width:18px;height:18px;border-radius:50%;
+  background:rgba(0,168,107,.15);
+  display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;margin-top:2px;
+}
+.price-card.featured .check{background:rgba(0,168,107,.3)}
+.check svg{width:10px;height:10px}
+.plan-cta{
+  display:block;text-align:center;
+  padding:14px;border-radius:10px;
+  text-decoration:none;font-weight:700;font-size:15px;
+  margin-top:24px;transition:.3s;
+}
+.plan-cta.outline{
+  border:1.5px solid var(--navy);color:var(--navy);
+}
+.plan-cta.outline:hover{background:var(--navy);color:#fff}
+.plan-cta.solid{
+  background:var(--green);color:#fff;
+  box-shadow:0 8px 20px rgba(0,168,107,.3);
+}
+.plan-cta.solid:hover{background:var(--green-lite);transform:translateY(-1px)}
+.plan-cta.ghost{
+  border:1.5px solid rgba(255,255,255,.3);color:#fff;
+}
+.plan-cta.ghost:hover{background:rgba(255,255,255,.1)}
+.old-price{
+  text-decoration:line-through;color:var(--muted);
+  font-size:18px;font-weight:400;margin-right:8px;
+}
+.price-card.featured .old-price{color:rgba(255,255,255,.4)}
+
+/* ─── PROCESS ─── */
+.process-wrap{position:relative;padding:0 20px}
+.process-line{
+  position:absolute;top:28px;right:52px;left:52px;
+  height:2px;background:linear-gradient(to left,var(--border),var(--green),var(--border));
+}
+body.en .process-line{right:52px;left:52px}
+.process-steps{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:20px;position:relative;z-index:1;
+}
+.process-step{text-align:center;padding:0 10px}
+.step-num{
+  width:56px;height:56px;border-radius:50%;
+  background:var(--green);color:#fff;
+  font-size:20px;font-weight:900;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 16px;
+  box-shadow:0 0 0 8px rgba(0,168,107,.15);
+}
+.process-step h3{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:8px}
+.process-step p{font-size:13px;color:var(--muted);line-height:1.6}
+
+/* ─── TESTIMONIALS ─── */
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.testimonial-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:28px;
+  transition:.3s;
+}
+.testimonial-card:hover{box-shadow:var(--shadow);transform:translateY(-3px)}
+.t-quote{font-size:32px;color:var(--green);line-height:1;margin-bottom:12px}
+.t-text{font-size:15px;color:var(--text);line-height:1.8;margin-bottom:20px}
+.t-author{display:flex;align-items:center;gap:12px}
+.t-avatar{
+  width:44px;height:44px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;font-weight:700;color:#fff;flex-shrink:0;
+}
+.t-name{font-size:14px;font-weight:700;color:var(--navy)}
+.t-role{font-size:12px;color:var(--muted)}
+.stars{color:var(--gold);font-size:14px;letter-spacing:2px;margin-bottom:10px}
+
+/* ─── FAQ ─── */
+.faq-list{max-width:720px;margin:0 auto}
+.faq-item{
+  border-bottom:1px solid var(--border);padding:20px 0;
+}
+.faq-q{
+  display:flex;justify-content:space-between;align-items:center;
+  cursor:pointer;font-weight:700;font-size:16px;color:var(--navy);
+  list-style:none;gap:16px;
+}
+.faq-q::after{
+  content:'+';font-size:22px;color:var(--green);
+  flex-shrink:0;font-weight:300;transition:.3s;
+}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{
+  font-size:14px;color:var(--muted);line-height:1.8;
+  max-height:0;overflow:hidden;transition:.4s;
+}
+.faq-item.open .faq-a{max-height:300px;padding-top:12px}
+
+/* ─── FINAL CTA ─── */
+.final-cta{
+  background:var(--navy);padding:100px 5%;text-align:center;
+  position:relative;overflow:hidden;
+}
+.final-cta::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(circle at 50% 50%,rgba(0,168,107,.15),transparent 60%);
+}
+.final-cta h2{
+  font-size:clamp(28px,5vw,54px);font-weight:900;color:#fff;
+  margin-bottom:16px;position:relative;
+}
+.final-cta p{font-size:18px;color:rgba(255,255,255,.65);margin-bottom:40px;position:relative}
+.cta-group{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;position:relative}
+
+/* ─── FOOTER ─── */
+footer{background:#060e18;padding:50px 5% 30px;color:rgba(255,255,255,.6);font-size:13px}
+.footer-inner{max-width:1100px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:40px}
+.footer-brand{color:#fff;font-size:17px;font-weight:700;margin-bottom:10px}
+.footer-desc{font-size:13px;line-height:1.7}
+.footer-col h4{color:#fff;font-size:14px;font-weight:600;margin-bottom:14px}
+.footer-col a{display:block;color:rgba(255,255,255,.5);text-decoration:none;margin-bottom:8px;font-size:13px;transition:.2s}
+.footer-col a:hover{color:var(--green)}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.08);padding-top:24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+
+/* ─── WHATSAPP FLOAT ─── */
+.wa-float{
+  position:fixed;bottom:24px;right:24px;z-index:9998;
+  width:58px;height:58px;border-radius:50%;
+  background:var(--wa);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 24px rgba(37,211,102,.4);
+  text-decoration:none;transition:.3s;
+  animation:waFloat 3s ease-in-out infinite;
+}
+body.en .wa-float{right:auto;left:24px}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 12px 30px rgba(37,211,102,.5)}
+@keyframes waFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.wa-float svg{width:28px;height:28px}
+
+/* ─── OFFER STRIP ─── */
+.offer-strip{
+  background:var(--green);color:#fff;
+  text-align:center;padding:10px 20px;
+  font-size:14px;font-weight:600;
+  position:relative;z-index:999;
+}
+.offer-strip span{opacity:.8;margin:0 8px}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(24px)}
+  to{opacity:1;transform:translateY(0)}
+}
+@keyframes fadeDown{
+  from{opacity:0;transform:translateY(-16px)}
+  to{opacity:1;transform:translateY(0)}
+}
+.reveal{
+  opacity:0;transform:translateY(30px);
+  transition:opacity .7s ease,transform .7s ease;
+}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ─── MODAL ─── */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.7);
+  z-index:9990;display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:.3s;padding:20px;
+}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal{
+  background:#fff;border-radius:20px;padding:40px;
+  max-width:480px;width:100%;text-align:center;
+  transform:translateY(20px);transition:.3s;
+  position:relative;
+}
+.modal-overlay.open .modal{transform:translateY(0)}
+.modal-close{
+  position:absolute;top:16px;right:16px;
+  background:none;border:none;cursor:pointer;
+  font-size:20px;color:var(--muted);
+}
+body.en .modal-close{right:auto;left:16px}
+.modal h3{font-size:24px;font-weight:800;color:var(--navy);margin-bottom:10px}
+.modal p{font-size:15px;color:var(--muted);margin-bottom:24px}
+.modal input,.modal select{
+  width:100%;padding:14px 16px;border:1.5px solid var(--border);
+  border-radius:10px;font-size:15px;font-family:inherit;
+  margin-bottom:12px;outline:none;transition:.2s;
+  background:#fff;
+}
+.modal input:focus,.modal select:focus{border-color:var(--green)}
+.modal .btn-primary{width:100%;justify-content:center;font-size:16px}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:900px){
+  .process-steps{grid-template-columns:repeat(2,1fr)}
+  .process-line{display:none}
+  nav .nav-link{display:none}
+  .footer-top{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+  .hero h1{font-size:36px}
+  header{padding:0 4%}
+  .price-card.featured{transform:scale(1)}
+  .process-steps{grid-template-columns:1fr}
+  .stat-card{border-right:none;border-bottom:1px solid rgba(255,255,255,.08)}
+  .countdown-timer{font-size:20px}
+}
+
+/* ─── LANGUAGE TOGGLE ─── */
+[data-en]{display:none}
+body.en [data-ar]{display:none}
+body.en [data-en]{display:initial}
+body.en .price-card.featured{transform:scale(1.04)}
+body.en .portfolio-tag{right:auto;left:12px}
+</style>
+</head>
+<body>
+
+<!-- OFFER STRIP -->
+<div class="offer-strip">
+  <span data-ar>🔥 عرض محدود: موقعك الاحترافي خلال 72 ساعة — فقط 333$</span>
+  <span data-en>🔥 Limited Offer: Your professional website in 72 hours — only $333</span>
+  <span>|</span>
+  <span data-ar>أول 20 عميل فقط</span>
+  <span data-en>First 20 clients only</span>
+</div>
+
+<!-- HEADER -->
+<header>
+  <a href="#" class="logo">
+    <div class="logo-mark">م</div>
+    <div class="logo-text">
+      <span data-ar>موقعك الآن</span>
+      <span data-en>SiteNow.ps</span>
+    </div>
+  </a>
+  <nav>
+    <a href="#features" class="nav-link" data-ar>لماذا نحن</a>
+    <a href="#features" class="nav-link" data-en>Why Us</a>
+    <a href="#pricing" class="nav-link" data-ar>الأسعار</a>
+    <a href="#pricing" class="nav-link" data-en>Pricing</a>
+    <a href="#portfolio" class="nav-link" data-ar>أعمالنا</a>
+    <a href="#portfolio" class="nav-link" data-en>Work</a>
+    <button class="lang-btn" onclick="toggleLang()">EN / عر</button>
+    <a href="https://wa.me/970XXXXXXXX" class="header-cta" data-ar>احجز الآن</a>
+    <a href="https://wa.me/970XXXXXXXX" class="header-cta" data-en>Book Now</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="badge">
+    <div class="badge-dot"></div>
+    <span data-ar>نبني مواقع تجلب عملاء — ليس فقط مواقع جميلة</span>
+    <span data-en>We build websites that bring clients — not just pretty pages</span>
+  </div>
+  <h1>
+    <span data-ar>موقعك جاهز خلال<br/><span class="accent">72 ساعة فقط</span></span>
+    <span data-en>Your Website Ready in<br/><span class="accent">72 Hours Flat</span></span>
+  </h1>
+  <p class="hero-sub">
+    <span data-ar>انطلق بحضور رقمي احترافي يثق به عملاؤك — بدون تعقيد، بدون تأخير، وبسعر لا تجده في أي مكان آخر.</span>
+    <span data-en>Launch a professional digital presence your clients trust — no complexity, no delays, at a price you won't find anywhere else.</span>
+  </p>
+  <div class="hero-ctas">
+    <a href="https://wa.me/970XXXXXXXX" class="btn-primary">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <span data-ar>ابدأ الآن — واتساب</span>
+      <span data-en>Start Now — WhatsApp</span>
+    </a>
+    <a href="#pricing" class="btn-secondary">
+      <span data-ar>عرض الأسعار</span>
+      <span data-en>View Pricing</span>
+    </a>
+  </div>
+  <div class="urgency-row">
+    <div class="urgency-pill">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      <span data-ar>تسليم خلال 72 ساعة مضمون</span>
+      <span data-en>72-hour guaranteed delivery</span>
+    </div>
+    <div class="urgency-pill">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/></svg>
+      <span data-ar>أكثر من 120 عميل راضٍ</span>
+      <span data-en>120+ satisfied clients</span>
+    </div>
+    <div class="urgency-pill">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <span data-ar>جودة 100% مضمونة</span>
+      <span data-en>100% satisfaction guaranteed</span>
+    </div>
+  </div>
+  <div class="countdown-box">
+    <div class="countdown-label" data-ar>⚡ العرض ينتهي خلال</div>
+    <div class="countdown-label" data-en>⚡ Offer Ends In</div>
+    <div class="countdown-timer" id="cd">
+      <span id="cd-h">04</span><span class="countdown-sep">:</span>
+      <span id="cd-m">59</span><span class="countdown-sep">:</span>
+      <span id="cd-s">59</span>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span class="scroll-text">SCROLL</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- STATS TICKER -->
+<div class="stats-bar">
+  <div class="ticker-wrap" id="ticker">
+    <div class="ticker-item">✅ <strong data-ar>120+</strong> <span data-ar>عميل راضٍ</span><strong data-en>120+</strong> <span data-en>Happy Clients</span></div>
+    <div class="ticker-item">🚀 <strong data-ar>72 ساعة</strong> <span data-ar>تسليم مضمون</span><strong data-en>72 Hours</strong> <span data-en>Guaranteed Delivery</span></div>
+    <div class="ticker-item">💰 <strong data-ar>333$</strong> <span data-ar>السعر الكامل للموقع</span><strong data-en>$333</strong> <span data-en>Full Website Price</span></div>
+    <div class="ticker-item">📱 <strong data-ar>100%</strong> <span data-ar>متوافق مع الجوال</span><strong data-en>100%</strong> <span data-en>Mobile Responsive</span></div>
+    <div class="ticker-item">🌍 <strong data-ar>عربي وإنجليزي</strong> <span data-ar>في نفس الموقع</span><strong data-en>Arabic & English</strong> <span data-en>Bilingual Sites</span></div>
+    <div class="ticker-item">⚡ <strong data-ar>بدون تعقيد</strong> <span data-ar>ابدأ اليوم</span><strong data-en>No Complexity</strong> <span data-en>Start Today</span></div>
+    <!-- Duplicate for seamless loop -->
+    <div class="ticker-item">✅ <strong data-ar>120+</strong> <span data-ar>عميل راضٍ</span><strong data-en>120+</strong> <span data-en>Happy Clients</span></div>
+    <div class="ticker-item">🚀 <strong data-ar>72 ساعة</strong> <span data-ar>تسليم مضمون</span><strong data-en>72 Hours</strong> <span data-en>Guaranteed Delivery</span></div>
+    <div class="ticker-item">💰 <strong data-ar>333$</strong> <span data-ar>السعر الكامل للموقع</span><strong data-en>$333</strong> <span data-en>Full Website Price</span></div>
+    <div class="ticker-item">📱 <strong data-ar>100%</strong> <span data-ar>متوافق مع الجوال</span><strong data-en>100%</strong> <span data-en>Mobile Responsive</span></div>
+    <div class="ticker-item">🌍 <strong data-ar>عربي وإنجليزي</strong> <span data-ar>في نفس الموقع</span><strong data-en>Arabic & English</strong> <span data-en>Bilingual Sites</span></div>
+    <div class="ticker-item">⚡ <strong data-ar>بدون تعقيد</strong> <span data-ar>ابدأ اليوم</span><strong data-en>No Complexity</strong> <span data-en>Start Today</span></div>
+  </div>
+</div>
+
+<!-- WHY US / FEATURES -->
+<section id="features" style="padding:90px 5%;max-width:1200px;margin:0 auto">
+  <div class="section-header reveal">
+    <div class="section-tag" data-ar>لماذا تختارنا</div>
+    <div class="section-tag" data-en>Why Choose Us</div>
+    <h2 class="section-title">
+      <span data-ar>كل ما تحتاجه لحضور رقمي احترافي</span>
+      <span data-en>Everything you need for a professional digital presence</span>
+    </h2>
+    <p class="section-sub">
+      <span data-ar>نحن لا نبني مواقع فقط — نبني أدوات تسويقية تجلب لك عملاء جدد يومياً.</span>
+      <span data-en>We don't just build websites — we build marketing tools that bring you new clients daily.</span>
+    </p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card reveal">
+      <div class="feature-icon">⚡</div>
+      <h3 data-ar>سرعة تنفيذ 72 ساعة</h3>
+      <h3 data-en>72-Hour Delivery</h3>
+      <p data-ar>نبدأ التنفيذ فور الدفع — موقعك جاهز خلال 3 أيام فقط. لا انتظار، لا وعود فارغة.</p>
+      <p data-en>We start immediately after payment — your site ready in 3 days. No waiting, no empty promises.</p>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">📱</div>
+      <h3 data-ar>تصميم جوال أولاً</h3>
+      <h3 data-en>Mobile-First Design</h3>
+      <p data-ar>أكثر من 80% من عملائك يبحثون عنك من هاتفهم — موقعك يبدو مثالياً على كل جهاز.</p>
+      <p data-en>Over 80% of your clients find you on mobile — your site looks perfect on every device.</p>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">🌍</div>
+      <h3 data-ar>عربي + إنجليزي</h3>
+      <h3 data-en>Arabic + English</h3>
+      <p data-ar>موقعك يتحدث لغة عملائك — دعم كامل للغة العربية والإنجليزية في نفس الموقع.</p>
+      <p data-en>Your site speaks your clients' language — full Arabic and English support in one site.</p>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">🔍</div>
+      <h3 data-ar>تحسين محركات البحث</h3>
+      <h3 data-en>SEO Optimized</h3>
+      <p data-ar>إعداد SEO أساسي في كل موقع — يساعد عملاءك على إيجادك في جوجل أسرع.</p>
+      <p data-en>Basic SEO setup in every site — helps your clients find you faster on Google.</p>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">💬</div>
+      <h3 data-ar>تكامل واتساب</h3>
+      <h3 data-en>WhatsApp Integration</h3>
+      <p data-ar>زر واتساب مدمج + نموذج تواصل — عملاؤك يصلون إليك بضغطة واحدة فقط.</p>
+      <p data-en>Built-in WhatsApp button + contact form — clients reach you with one click.</p>
+    </div>
+    <div class="feature-card reveal">
+      <div class="feature-icon">🎨</div>
+      <h3 data-ar>تصميم يعكس هويتك</h3>
+      <h3 data-en>Branded Design</h3>
+      <p data-ar>موقع يعكس شخصية بزنسك — ألوانك، شعارك، وأسلوبك الخاص في عرض واحد متكامل.</p>
+      <p data-en>A site that reflects your business personality — your colors, logo, and style in one package.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-section">
+  <div class="stats-inner">
+    <div class="stat-card reveal">
+      <div class="stat-num" id="stat-clients">0</div>
+      <div class="stat-label" data-ar>عميل راضٍ</div>
+      <div class="stat-label" data-en>Happy Clients</div>
+    </div>
+    <div class="stat-card reveal">
+      <div class="stat-num" id="stat-sites">0</div>
+      <div class="stat-label" data-ar>موقع مُنجز</div>
+      <div class="stat-label" data-en>Websites Built</div>
+    </div>
+    <div class="stat-card reveal">
+      <div class="stat-num">72h</div>
+      <div class="stat-label" data-ar>أقصى وقت للتسليم</div>
+      <div class="stat-label" data-en>Max Delivery Time</div>
+    </div>
+    <div class="stat-card reveal">
+      <div class="stat-num">100%</div>
+      <div class="stat-label" data-ar>رضا العملاء</div>
+      <div class="stat-label" data-en>Client Satisfaction</div>
+    </div>
+  </div>
+</div>
+
+<!-- PORTFOLIO -->
+<section id="portfolio" style="padding:90px 5%;max-width:1200px;margin:0 auto">
+  <div class="section-header reveal" style="text-align:center">
+    <div class="section-tag" data-ar>أعمالنا</div>
+    <div class="section-tag" data-en>Our Work</div>
+    <h2 class="section-title">
+      <span data-ar>مواقع أطلقناها لعملائنا</span>
+      <span data-en>Websites We've Launched</span>
+    </h2>
+    <p class="section-sub" style="margin:0 auto">
+      <span data-ar>كل موقع صُمِّم لتحقيق هدف واضح — الحصول على عملاء أكثر.</span>
+      <span data-en>Every site is designed with a clear goal — getting more clients.</span>
+    </p>
+  </div>
+  <div class="portfolio-grid">
+    <div class="portfolio-card reveal">
+      <div class="portfolio-img" style="background:linear-gradient(135deg,#0B3C5D,#1a5f8a)">🏥<div class="portfolio-tag" data-ar>عيادة طبية</div><div class="portfolio-tag" data-en>Medical Clinic</div></div>
+      <div class="portfolio-info">
+        <h3 data-ar>عيادة د. أحمد الطبية — رام الله</h3>
+        <h3 data-en>Dr. Ahmad Medical Clinic — Ramallah</h3>
+        <p data-ar>موقع احترافي لعيادة طبية متخصصة مع نظام حجز واتساب</p>
+        <p data-en>Professional site for a medical clinic with WhatsApp booking system</p>
+        <a href="#" class="portfolio-view" data-ar>عرض النموذج ←</a>
+        <a href="#" class="portfolio-view" data-en>View Demo →</a>
+      </div>
+    </div>
+    <div class="portfolio-card reveal">
+      <div class="portfolio-img" style="background:linear-gradient(135deg,#1a3a1a,#2d6a2d)">🍽️<div class="portfolio-tag" data-ar>مطعم</div><div class="portfolio-tag" data-en>Restaurant</div></div>
+      <div class="portfolio-info">
+        <h3 data-ar>مطعم الوادي — نابلس</h3>
+        <h3 data-en>Al-Wadi Restaurant — Nablus</h3>
+        <p data-ar>موقع مطعم مع قائمة طعام رقمية وموقع جغرافي</p>
+        <p data-en>Restaurant site with digital menu and location integration</p>
+        <a href="#" class="portfolio-view" data-ar>عرض النموذج ←</a>
+        <a href="#" class="portfolio-view" data-en>View Demo →</a>
+      </div>
+    </div>
+    <div class="portfolio-card reveal">
+      <div class="portfolio-img" style="background:linear-gradient(135deg,#3d1a0d,#8b3a1a)">🏋️<div class="portfolio-tag" data-ar>رياضة ولياقة</div><div class="portfolio-tag" data-en>Fitness</div></div>
+      <div class="portfolio-info">
+        <h3 data-ar>صالة بورصة الرياضية — غزة</h3>
+        <h3 data-en>Bursa Fitness Center — Gaza</h3>
+        <p data-ar>موقع صالة رياضية مع عرض الاشتراكات وجدول التمارين</p>
+        <p data-en>Gym site with membership packages and training schedule</p>
+        <a href="#" class="portfolio-view" data-ar>عرض النموذج ←</a>
+        <a href="#" class="portfolio-view" data-en>View Demo →</a>
+      </div>
+    </div>
+    <div class="portfolio-card reveal">
+      <div class="portfolio-img" style="background:linear-gradient(135deg,#1a1a4d,#2d2d8b)">💼<div class="portfolio-tag" data-ar>شركة خدمات</div><div class="portfolio-tag" data-en>Services Co.</div></div>
+      <div class="portfolio-info">
+        <h3 data-ar>شركة المستقبل للاستشارات — الخليل</h3>
+        <h3 data-en>Future Consulting Co. — Hebron</h3>
+        <p data-ar>موقع شركة استشارية احترافي مع عرض الخدمات وفريق العمل</p>
+        <p data-en>Professional consulting firm site with services and team showcase</p>
+        <a href="#" class="portfolio-view" data-ar>عرض النموذج ←</a>
+        <a href="#" class="portfolio-view" data-en>View Demo →</a>
+      </div>
+    </div>
+    <div class="portfolio-card reveal">
+      <div class="portfolio-img" style="background:linear-gradient(135deg,#0d2d1a,#1a5c38)">🌿<div class="portfolio-tag" data-ar>منظمة غير حكومية</div><div class="portfolio-tag" data-en>NGO</div></div>
+      <div class="portfolio-info">
+        <h3 data-ar>جمعية رواد التغيير — بيت لحم</h3>
+        <h3 data-en>Change Pioneers Association — Bethlehem</h3>
+        <p data-ar>موقع منظمة غير حكومية مع صفحة تبرعات وأخبار المشاريع</p>
+        <p data-en>NGO site with donation page and project news section</p>
+        <a href="#" class="portfolio-view" data-ar>عرض النموذج ←</a>
+        <a href="#" class="portfolio-view" data-en>View Demo →</a>
+      </div>
+    </div>
+    <div class="portfolio-card reveal">
+      <div class="portfolio-img" style="background:linear-gradient(135deg,#2d1a3d,#5a2d7a)">🎓<div class="portfolio-tag" data-ar>تعليم</div><div class="portfolio-tag" data-en>Education</div></div>
+      <div class="portfolio-info">
+        <h3 data-ar>أكاديمية نور للتدريب — جنين</h3>
+        <h3 data-en>Nour Training Academy — Jenin</h3>
+        <p data-ar>موقع أكاديمية تدريب مع قائمة الكورسات ونموذج تسجيل</p>
+        <p data-en>Training academy site with course listings and registration form</p>
+        <a href="#" class="portfolio-view" data-ar>عرض النموذج ←</a>
+        <a href="#" class="portfolio-view" data-en>View Demo →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section style="padding:80px 5%;background:#fff">
+  <div style="max-width:1100px;margin:0 auto">
+    <div class="section-header reveal" style="text-align:center">
+      <div class="section-tag" data-ar>كيف نعمل</div>
+      <div class="section-tag" data-en>How It Works</div>
+      <h2 class="section-title">
+        <span data-ar>من الصفر إلى الإنترنت في 4 خطوات</span>
+        <span data-en>From Zero to Online in 4 Steps</span>
+      </h2>
+    </div>
+    <div class="process-wrap">
+      <div class="process-line"></div>
+      <div class="process-steps">
+        <div class="process-step reveal">
+          <div class="step-num">١</div>
+          <h3 data-ar>تواصل معنا</h3>
+          <h3 data-en>Contact Us</h3>
+          <p data-ar>أرسل لنا رسالة على واتساب وأخبرنا عن بزنسك — يستغرق ذلك 5 دقائق فقط</p>
+          <p data-en>Send us a WhatsApp message and tell us about your business — takes only 5 minutes</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="step-num">٢</div>
+          <h3 data-ar>ابدأ وادفع</h3>
+          <h3 data-en>Pay & Start</h3>
+          <p data-ar>ادفع 50% لتأمين مكانك — نبدأ العمل فوراً بعد الدفع</p>
+          <p data-en>Pay 50% to secure your spot — we start work immediately after payment</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="step-num">٣</div>
+          <h3 data-ar>راجع وعدّل</h3>
+          <h3 data-en>Review & Refine</h3>
+          <p data-ar>نرسل لك الموقع خلال 48 ساعة — لديك جولة تعديل كاملة مجانية</p>
+          <p data-en>We send you the site within 48 hours — one full free revision round included</p>
+        </div>
+        <div class="process-step reveal">
+          <div class="step-num">٤</div>
+          <h3 data-ar>اطلق موقعك</h3>
+          <h3 data-en>Go Live!</h3>
+          <p data-ar>بعد موافقتك، موقعك يكون حياً على الإنترنت — ادفع المبلغ المتبقي واستمتع</p>
+          <p data-en>After your approval, your site goes live — pay the balance and enjoy</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" style="padding:90px 5%;max-width:1200px;margin:0 auto">
+  <div class="section-header reveal" style="text-align:center">
+    <div class="section-tag" data-ar>الأسعار</div>
+    <div class="section-tag" data-en>Pricing</div>
+    <h2 class="section-title">
+      <span data-ar>اختر الباقة المناسبة لك</span>
+      <span data-en>Choose Your Package</span>
+    </h2>
+    <p class="section-sub" style="margin:0 auto" data-ar>المواقع الاحترافية عادةً تبدأ من 800$ — عروضنا مصممة لتساعد البزنس الفلسطيني ينمو.</p>
+    <p class="section-sub" style="margin:0 auto" data-en>Professional websites normally start at $800+ — our packages are designed to help Palestinian businesses grow.</p>
+  </div>
+  <div class="pricing-grid">
+
+    <!-- STARTER -->
+    <div class="price-card reveal">
+      <div class="plan-name" style="color:var(--muted)" data-ar>⭐ باقة البداية</div>
+      <div class="plan-name" style="color:var(--muted)" data-en>⭐ Starter</div>
+      <div class="plan-price">
+        <span class="old-price">$600</span>$333
+      </div>
+      <div class="plan-period" data-ar>دفعة واحدة — لا رسوم شهرية</div>
+      <div class="plan-period" data-en>One-time — No monthly fees</div>
+      <div class="plan-divider"></div>
+      <div class="plan-feature"><div class="check"><svg viewBox="0 0 12 12" fill="none" stroke="#00A86B" stroke-width="2"><polyline points="1,6 5,10 11,2"/></svg></div><span data-ar>حتى 5 صفحات احترافية</span><span data-en>Up to 5 professional pages</span></div>
+      <div class="plan-feature"><div class="check"><svg viewBox="0 0 12 12" fill="none" stroke="#00A86B" stroke-width="2"><polyline points="1,6 5,10 11,2"/></svg></div><span data-ar>تصميم متجاوب للجوال</span><span data-en>Mobile responsive design</span></div>
+      <div class="plan-feature"><div class="check"><svg viewBox="0 0 12 12" fill="none" stroke="#00A86B" stroke-width="2"><polyline points="1,6 5,10 11,2"/></svg></div><span data-ar>زر واتساب ونموذج تواصل</span><span data-en>WhatsApp button & contact form</span></div>
+      <div class="plan-feature"><div class="check"><svg viewBox="0 0 12 12" fill="none" stroke="#00A86B" stroke-width="2"><polyline points="1,6 5,10 11,2"/></svg></div><span data-ar>إعداد SEO أساسي</span><span data-en>Basic SEO setup</span></div>
+      <div class="plan-feature"><div class="check"><svg viewBox="0 0 12 12" fill="none" stroke="#00A86B" stroke-width="2"><polyline points="1,6 5,10 11,2"/></svg></div><span data-ar>تسليم خلال 72 ساعة</span><span data-en>72-hour delivery</span></div>
+      <div class="plan-feature"><div class="check"><svg viewBox="0 0 12 12" fill="none" stroke="#00A86B" stroke-width="2"><polyline points="1,6 5,10 11,2"/></svg></div><span data-ar>جولة تعديل مجانية</span><span data-en>1 free revision round</span></div>
+      <a href="https://wa.me/970XXXXXXXX" class="plan-cta outline" data-ar>ابدأ الآن</a>
+      <a href="https://wa.me/970XXXXXXXX" class="plan-cta outline" data-en>Start Now</a>
+    </div>
+
+    <!-- PRO (FEATURED) -->
+    <div class="price-card featured reveal">
+      <div class="popular-badge" data-ar>🔥 الأكثر طلباً</div>
+      <div class="popular-badge" data-en>🔥 Most Popular</div>
+      <div class="plan-name" data-ar>🚀 الباقة الاحترافية</div>
+      <div class="plan-name" data-en>🚀 Professional</div>
+      <div class="plan-price" style="color:#fff">
+        <span class="old-price">$900</span>$599
+      </div>
+      <div class="plan-period" data-ar>دفعة واحدة — القيمة الأعلى</div>
+      <div class="plan-period" data-en>One-time — Best Value</div>
+      <div class="plan-divider"></div>
+      <div class="plan-feature"><div class="check"><svg viewBox="0 0 12 12" fill="none" stroke="#00A86B" stroke-width="2"><polyline points="1,6 5,10 11,2"/></svg></div><span data-ar>كل مميزات باقة البداية</span><span data-en>Everything in Starter</span></div>
+      <div class="plan-feature"><div class="check"><svg viewBox="0 0 12 12" fill="none" stroke="#00A86B" stroke-width="2"><polyline points="1,6 5,10 11,2"/></svg></div><span data-ar>حتى 8 صفحات + مدونة</span><span data-en>Up to 8 pages + blog</span></div>
+      <div class="plan-feature"><div class="check"><svg viewBox="0 0 12 12" fill="none" stroke="#00A86B" stroke-width="2"><polyline points="1,6 5,10 11,2"/></svg></div><span data-ar>تصميم شعار مخصص</span><span data-en>Custom logo design</span></div>
+      <div class="plan-feature"><div class="check"><svg viewBox="0 0 12 12" fill="none" stroke="#00A86B" stroke-width="2"><polyline points="1,6 5,10 11,2"/></svg></div><span data-ar>إعداد الهوست والدومين</span><span data-en>Hosting & domain setup</span></div>
+      <div class="plan-feature"><div class="check"><svg viewBox="0 0 12 12" fill="none" stroke="#00A86B" stroke-width="2"><polyline points="1,6 5,10 11,2"/></svg></div><span data-ar>SEO متقدم + سرعة تحميل عالية</span><span data-en>Advanced SEO + speed optimization</span></div>
+      <div class="plan-feature"><div class="check"><svg viewBox="0 0 12 12" fill="none" stroke="#00A86B" stroke-width="2"><polyline points="1,6 5,10 11,2"/></svg></div><span data-ar>دعم فني شهر كامل</span><span data-en>1 month technical support</span></div>
+      <div class="plan-feature"><div class="check"><svg viewBox="0 0 12 12" fill="none" stroke="#00A86B" stroke-width="2"><polyline points="1,6 5,10 11,2"/></svg></div><span data-ar>3 جولات تعديل مجانية</span><span data-en>3 free revision rounds</span></div>
+      <a href="https://wa.me/970XXXXXXXX" class="plan-cta solid" data-ar>احجز الآن</a>
+      <a href="https://wa.me/970XXXXXXXX" class="plan-cta solid" data-en>Book Now</a>
+    </div>
+
+    <!-- ECOMMERCE -->
+    <div class="price-card reveal">
+      <div class="plan-name" style="color:var(--gold)" data-ar>🛍️ متجر إلكتروني</div>
+      <div class="plan-name" style="color:var(--gold)" data-en>🛍️ E-Commerce</div>
+      <div class="plan-price">
+        <span class="old-price">$1,800</span>$999
+      </div>
+      <div class="plan-period" data-ar>كل شيء تحتاجه للبيع أونلاين</div>
+      <div class="plan-period" data-en>Everything you need to sell online</div>
+      <div class="plan-divider"></div>
+      <div class="plan-feature"><div class="check"><svg viewBox="0 0 12 12" fill="none" stroke="#00A86B" stroke-width="2"><polyline points="1,6 5,10 11,2"/></svg></div><span data-ar>كل مميزات الباقة الاحترافية</span><span data-en>Everything in Professional</span></div>
+      <div class="plan-feature"><div class="check"><svg viewBox="0 0 12 12" fill="none" stroke="#00A86B" stroke-width="2"><polyline points="1,6 5,10 11,2"/></svg></div><span data-ar>متجر كامل مع سلة شراء</span><span data-en>Full store with shopping cart</span></div>
+      <div class="plan-feature"><div class="check"><svg viewBox="0 0 12 12" fill="none" stroke="#00A86B" stroke-width="2"><polyline points="1,6 5,10 11,2"/></svg></div><span data-ar>حتى 50 منتج + إدارة المخزون</span><span data-en>Up to 50 products + inventory</span></div>
+      <div class="plan-feature"><div class="check"><svg viewBox="0 0 12 12" fill="none" stroke="#00A86B" stroke-width="2"><polyline points="1,6 5,10 11,2"/></svg></div><span data-ar>نظام طلبات + إشعارات واتساب</span><span data-en>Orders system + WhatsApp alerts</span></div>
+      <div class="plan-feature"><div class="check"><svg viewBox="0 0 12 12" fill="none" stroke="#00A86B" stroke-width="2"><polyline points="1,6 5,10 11,2"/></svg></div><span data-ar>بوابة دفع محلية</span><span data-en>Local payment gateway</span></div>
+      <div class="plan-feature"><div class="check"><svg viewBox="0 0 12 12" fill="none" stroke="#00A86B" stroke-width="2"><polyline points="1,6 5,10 11,2"/></svg></div><span data-ar>تسليم خلال 5 أيام عمل</span><span data-en>Delivery in 5 business days</span></div>
+      <a href="https://wa.me/970XXXXXXXX" class="plan-cta outline" data-ar>اطلب عرضاً</a>
+      <a href="https://wa.me/970XXXXXXXX" class="plan-cta outline" data-en>Get a Quote</a>
+    </div>
+  </div>
+
+  <!-- UPSELLS -->
+  <div style="margin-top:40px;background:#fff;border:1px solid var(--border);border-radius:var(--radius);padding:32px" class="reveal">
+    <h3 style="text-align:center;margin-bottom:24px;color:var(--navy)" data-ar>⚡ إضافات اختيارية</h3>
+    <h3 style="text-align:center;margin-bottom:24px;color:var(--navy)" data-en>⚡ Optional Add-ons</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
+      <div style="text-align:center;padding:16px;background:var(--offwhite);border-radius:10px">
+        <div style="font-size:22px;margin-bottom:8px">🖼️</div>
+        <div style="font-weight:700;color:var(--navy);font-size:15px" data-ar>صفحة إضافية</div>
+        <div style="font-weight:700;color:var(--navy);font-size:15px" data-en>Extra Page</div>
+        <div style="color:var(--green);font-weight:700;font-size:18px;margin-top:4px">+$50</div>
+      </div>
+      <div style="text-align:center;padding:16px;background:var(--offwhite);border-radius:10px">
+        <div style="font-size:22px;margin-bottom:8px">🎨</div>
+        <div style="font-weight:700;color:var(--navy);font-size:15px" data-ar>تصميم شعار</div>
+        <div style="font-weight:700;color:var(--navy);font-size:15px" data-en>Logo Design</div>
+        <div style="color:var(--green);font-weight:700;font-size:18px;margin-top:4px">+$150</div>
+      </div>
+      <div style="text-align:center;padding:16px;background:var(--offwhite);border-radius:10px">
+        <div style="font-size:22px;margin-bottom:8px">🌐</div>
+        <div style="font-weight:700;color:var(--navy);font-size:15px" data-ar>هوست + دومين</div>
+        <div style="font-weight:700;color:var(--navy);font-size:15px" data-en>Hosting + Domain</div>
+        <div style="color:var(--green);font-weight:700;font-size:18px;margin-top:4px">+$200</div>
+      </div>
+      <div style="text-align:center;padding:16px;background:var(--offwhite);border-radius:10px">
+        <div style="font-size:22px;margin-bottom:8px">📈</div>
+        <div style="font-weight:700;color:var(--navy);font-size:15px" data-ar>تحسين السرعة</div>
+        <div style="font-weight:700;color:var(--navy);font-size:15px" data-en>Speed Boost</div>
+        <div style="color:var(--green);font-weight:700;font-size:18px;margin-top:4px">+$100</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section style="padding:80px 5%;background:#fff">
+  <div style="max-width:1100px;margin:0 auto">
+    <div class="section-header reveal" style="text-align:center">
+      <div class="section-tag" data-ar>آراء عملائنا</div>
+      <div class="section-tag" data-en>Client Reviews</div>
+      <h2 class="section-title">
+        <span data-ar>ماذا يقول عملاؤنا</span>
+        <span data-en>What Our Clients Say</span>
+      </h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="stars">★★★★★</div>
+        <div class="t-text" data-ar>"كنت متردداً في البداية، لكن الموقع اكتمل في أقل من 3 أيام وكان أفضل مما توقعت. العملاء بدأوا يتواصلوا معي من خلاله مباشرة."</div>
+        <div class="t-text" data-en>"I was hesitant at first, but the site was done in under 3 days and better than I expected. Clients started reaching out through it directly."</div>
+        <div class="t-author">
+          <div class="t-avatar" style="background:var(--navy)">خ</div>
+          <div>
+            <div class="t-name" data-ar>خالد العمري</div>
+            <div class="t-name" data-en>Khaled Al-Omari</div>
+            <div class="t-role" data-ar>صاحب عيادة — رام الله</div>
+            <div class="t-role" data-en>Clinic Owner — Ramallah</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="stars">★★★★★</div>
+        <div class="t-text" data-ar>"الموقع غيّر طريقة عمل بزنسي. الناس باتوا يثقون في خدماتي أكثر لما يشوفوا موقع احترافي. الاستثمار كان يستاهل 100%."</div>
+        <div class="t-text" data-en>"The website changed how my business operates. People trust my services more when they see a professional site. The investment was 100% worth it."</div>
+        <div class="t-author">
+          <div class="t-avatar" style="background:var(--green)">س</div>
+          <div>
+            <div class="t-name" data-ar>سمر حداد</div>
+            <div class="t-name" data-en>Samar Haddad</div>
+            <div class="t-role" data-ar>مدربة لياقة — نابلس</div>
+            <div class="t-role" data-en>Fitness Coach — Nablus</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="stars">★★★★★</div>
+        <div class="t-text" data-ar>"سرعة التنفيذ كانت لا تصدق. أرسلت المعلومات الليلة، وبالصبح المشروع جاهز للمراجعة. فريق محترف جداً وسعر معقول."</div>
+        <div class="t-text" data-en>"The execution speed was unbelievable. I sent the info at night, and by morning the project was ready for review. Very professional team and fair pricing."</div>
+        <div class="t-author">
+          <div class="t-avatar" style="background:#c0392b">م</div>
+          <div>
+            <div class="t-name" data-ar>محمد الجرار</div>
+            <div class="t-name" data-en>Mohammad Al-Jarrar</div>
+            <div class="t-role" data-ar>مدير شركة — الخليل</div>
+            <div class="t-role" data-en>Company Director — Hebron</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section style="padding:80px 5%;max-width:900px;margin:0 auto">
+  <div class="section-header reveal" style="text-align:center">
+    <div class="section-tag" data-ar>الأسئلة الشائعة</div>
+    <div class="section-tag" data-en>FAQ</div>
+    <h2 class="section-title">
+      <span data-ar>أسئلة يسألها الجميع</span>
+      <span data-en>Questions Everyone Asks</span>
+    </h2>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item reveal">
+      <div class="faq-q" onclick="toggleFaq(this)" data-ar>هل 72 ساعة حقيقية أم مجرد تسويق؟</div>
+      <div class="faq-q" onclick="toggleFaq(this)" data-en>Is the 72 hours real or just marketing?</div>
+      <div class="faq-a" data-ar>حقيقية 100%. نبدأ التنفيذ فور استلام معلومات بزنسك ودفع 50%. معظم مواقعنا تُسلَّم في أقل من 48 ساعة.</div>
+      <div class="faq-a" data-en>100% real. We start execution immediately upon receiving your business info and 50% payment. Most of our sites are delivered in less than 48 hours.</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q" onclick="toggleFaq(this)" data-ar>ماذا يشمل سعر الـ 333$؟</div>
+      <div class="faq-q" onclick="toggleFaq(this)" data-en>What does the $333 price include?</div>
+      <div class="faq-a" data-ar>يشمل: تصميم احترافي، حتى 5 صفحات، تجاوب كامل مع الجوال، زر واتساب، نموذج تواصل، إعداد SEO أساسي، وجولة تعديل مجانية. الهوست والدومين منفصلان.</div>
+      <div class="faq-a" data-en>Includes: professional design, up to 5 pages, full mobile responsiveness, WhatsApp button, contact form, basic SEO setup, and one free revision. Hosting and domain are separate.</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q" onclick="toggleFaq(this)" data-ar>هل تساعدونني في الهوست والدومين؟</div>
+      <div class="faq-q" onclick="toggleFaq(this)" data-en>Do you help with hosting and domain?</div>
+      <div class="faq-a" data-ar>نعم! يمكنك الاشتراك في خدمة الهوست والدومين بإضافة 200$ فقط — نقوم بكل شيء بدلاً عنك.</div>
+      <div class="faq-a" data-en>Yes! You can add hosting and domain setup for just +$200 — we handle everything for you.</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q" onclick="toggleFaq(this)" data-ar>هل تبنون متاجر إلكترونية؟</div>
+      <div class="faq-q" onclick="toggleFaq(this)" data-en>Do you build e-commerce stores?</div>
+      <div class="faq-a" data-ar>نعم، لدينا باقة متجر إلكتروني كاملة بسعر 999$ تشمل سلة شراء، إدارة منتجات، ونظام طلبات.</div>
+      <div class="faq-a" data-en>Yes, we have a full e-commerce package at $999 including shopping cart, product management, and order system.</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q" onclick="toggleFaq(this)" data-ar>ما طريقة الدفع؟</div>
+      <div class="faq-q" onclick="toggleFaq(this)" data-en>What are the payment methods?</div>
+      <div class="faq-a" data-ar>50% عند البداية، 50% عند التسليم. نقبل: تحويل بنكي، كاش، أو محافظ إلكترونية محلية.</div>
+      <div class="faq-a" data-en>50% upfront, 50% on delivery. We accept: bank transfer, cash, or local digital wallets.</div>
+    </div>
+    <div class="faq-item reveal">
+      <div class="faq-q" onclick="toggleFaq(this)" data-ar>ماذا لو لم يعجبني الموقع؟</div>
+      <div class="faq-q" onclick="toggleFaq(this)" data-en>What if I don't like the site?</div>
+      <div class="faq-a" data-ar>لديك جولة تعديل كاملة مجانية — نعدّل على كل ما تطلبه حتى تكون راضياً 100%.</div>
+      <div class="faq-a" data-en>You have one full free revision — we adjust everything you request until you're 100% satisfied.</div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<div class="final-cta">
+  <h2 data-ar>جاهز تطلق موقعك اليوم؟</h2>
+  <h2 data-en>Ready to Launch Your Website Today?</h2>
+  <p data-ar>انضم إلى أكثر من 120 بزنس فلسطيني أطلق حضوره الرقمي معنا — ابدأ الآن.</p>
+  <p data-en>Join 120+ Palestinian businesses that launched their digital presence with us — start now.</p>
+  <div class="cta-group">
+    <a href="https://wa.me/970XXXXXXXX" class="btn-primary" style="font-size:18px;padding:18px 36px">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      <span data-ar>تواصل معنا الآن</span>
+      <span data-en>Contact Us Now</span>
+    </a>
+    <a href="#pricing" class="btn-secondary" style="font-size:18px;padding:18px 36px" data-ar>عرض الأسعار</a>
+    <a href="#pricing" class="btn-secondary" style="font-size:18px;padding:18px 36px" data-en>View Pricing</a>
+  </div>
+  <p style="font-size:13px;color:rgba(255,255,255,.4);margin-top:24px" data-ar>50% دفعة مقدمة فقط — الباقي عند التسليم</p>
+  <p style="font-size:13px;color:rgba(255,255,255,.4);margin-top:24px" data-en>Only 50% upfront — rest on delivery</p>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand" data-ar>موقعك الآن</div>
+        <div class="footer-brand" data-en>SiteNow.ps</div>
+        <p class="footer-desc" data-ar>نبني مواقع ويب احترافية للبزنس الفلسطيني خلال 72 ساعة فقط — بسرعة، بجودة، وبسعر مناسب.</p>
+        <p class="footer-desc" data-en>We build professional websites for Palestinian businesses in just 72 hours — fast, quality, and affordable.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-ar>روابط سريعة</h4>
+        <h4 data-en>Quick Links</h4>
+        <a href="#features" data-ar>لماذا نحن</a>
+        <a href="#features" data-en>Why Us</a>
+        <a href="#portfolio" data-ar>أعمالنا</a>
+        <a href="#portfolio" data-en>Our Work</a>
+        <a href="#pricing" data-ar>الأسعار</a>
+        <a href="#pricing" data-en>Pricing</a>
+      </div>
+      <div class="footer-col">
+        <h4 data-ar>تواصل معنا</h4>
+        <h4 data-en>Contact</h4>
+        <a href="https://wa.me/970XXXXXXXX">WhatsApp</a>
+        <a href="mailto:hello@maw9i3ak.ps">hello@maw9i3ak.ps</a>
+        <a href="https://instagram.com/maw9i3ak">Instagram</a>
+        <a href="https://facebook.com/maw9i3ak">Facebook</a>
+        <a href="https://tiktok.com/@maw9i3ak">TikTok</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-ar>© 2025 موقعك الآن — فلسطين</span>
+      <span data-en>© 2025 SiteNow.ps — Palestine</span>
+      <span data-ar>صُنع بـ ❤️ في فلسطين</span>
+      <span data-en>Made with ❤️ in Palestine</span>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/970XXXXXXXX" class="wa-float" target="_blank" title="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<!-- TOAST NOTIFICATION -->
+<div id="toast">
+  <div class="toast-dot"></div>
+  <div id="toast-text"></div>
+</div>
+
+<!-- LEAD MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div style="font-size:36px;margin-bottom:12px">🎁</div>
+    <h3 data-ar>عرض خاص لك!</h3>
+    <h3 data-en>Special Offer for You!</h3>
+    <p data-ar>احجز خلال الـ 24 ساعة القادمة واحصل على صفحة إضافية مجاناً (قيمتها 50$)</p>
+    <p data-en>Book within the next 24 hours and get a free extra page (worth $50)</p>
+    <input type="text" id="modal-name" placeholder="اسمك / Your Name"/>
+    <input type="tel" id="modal-phone" placeholder="رقم هاتفك / Your Phone"/>
+    <a href="#" class="btn-primary" onclick="submitLead()" style="display:flex;justify-content:center;padding:14px">
+      <span data-ar>احجز الآن واحصل على هديتك</span>
+      <span data-en>Book Now & Get Your Gift</span>
+    </a>
+    <p style="font-size:12px;color:var(--muted);margin-top:12px" data-ar>سنتواصل معك على واتساب خلال دقائق</p>
+    <p style="font-size:12px;color:var(--muted);margin-top:12px" data-en>We'll contact you on WhatsApp within minutes</p>
+  </div>
+</div>
+
+<script>
+// ─── LANG TOGGLE ───
+function toggleLang(){
+  document.body.classList.toggle('en');
+  document.documentElement.setAttribute('dir', document.body.classList.contains('en') ? 'ltr' : 'rtl');
+  document.documentElement.setAttribute('lang', document.body.classList.contains('en') ? 'en' : 'ar');
+}
+
+// ─── COUNTDOWN ───
+(function(){
+  var end = new Date().getTime() + 4*60*60*1000 + 59*60*1000;
+  function tick(){
+    var now = new Date().getTime();
+    var diff = end - now;
+    if(diff < 0){diff = 0}
+    var h = Math.floor(diff/3600000);
+    var m = Math.floor((diff%3600000)/60000);
+    var s = Math.floor((diff%60000)/1000);
+    document.getElementById('cd-h').textContent = String(h).padStart(2,'0');
+    document.getElementById('cd-m').textContent = String(m).padStart(2,'0');
+    document.getElementById('cd-s').textContent = String(s).padStart(2,'0');
+    if(diff > 0) setTimeout(tick, 1000);
+  }
+  tick();
+})();
+
+// ─── STATS COUNTER ───
+function animateCounter(el, target, suffix){
+  var start = 0;
+  var step = Math.ceil(target/60);
+  var timer = setInterval(function(){
+    start += step;
+    if(start >= target){start = target; clearInterval(timer);}
+    el.textContent = start + (suffix||'');
+  }, 30);
+}
+
+// ─── REVEAL ON SCROLL ───
+var revealObserver = new IntersectionObserver(function(entries){
+  entries.forEach(function(e){
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      if(e.target.id === 'stat-clients') animateCounter(e.target, 120, '+');
+      if(e.target.id === 'stat-sites') animateCounter(e.target, 300, '+');
+    }
+  });
+},{threshold:0.15});
+document.querySelectorAll('.reveal').forEach(function(el){revealObserver.observe(el);});
+
+// ─── FAQ ───
+function toggleFaq(el){
+  var item = el.parentElement;
+  var wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(function(i){i.classList.remove('open');});
+  if(!wasOpen) item.classList.add('open');
+}
+
+// ─── TOAST NOTIFICATIONS ───
+var toasts = [
+  {ar:'حجز أحمد م. موقع عيادة منذ 3 دقائق 🔥', en:'Ahmed M. just booked a clinic website 3 min ago 🔥'},
+  {ar:'سمر ح. تواصلت للاستفسار عن الأسعار', en:'Samar H. just asked about pricing'},
+  {ar:'محمد ع. حجز موقع شركته للتو ✅', en:'Mohammad A. just booked a company site ✅'},
+  {ar:'12 شخص يشاهدون هذه الصفحة الآن 👀', en:'12 people viewing this page right now 👀'},
+  {ar:'رنا ك. استلمت موقعها خلال 48 ساعة 🎉', en:'Rana K. received her site within 48 hours 🎉'},
+];
+var tIdx = 0;
+function showToast(){
+  var isEn = document.body.classList.contains('en');
+  var t = toasts[tIdx % toasts.length];
+  document.getElementById('toast-text').textContent = isEn ? t.en : t.ar;
+  var toast = document.getElementById('toast');
+  toast.classList.add('show');
+  setTimeout(function(){toast.classList.remove('show');}, 4000);
+  tIdx++;
+  setTimeout(showToast, 8000 + Math.random()*4000);
+}
+setTimeout(showToast, 5000);
+
+// ─── MODAL ───
+setTimeout(function(){
+  document.getElementById('modal').classList.add('open');
+}, 20000);
+
+function closeModal(){
+  document.getElementById('modal').classList.remove('open');
+}
+
+function submitLead(){
+  var name = document.getElementById('modal-name').value;
+  var phone = document.getElementById('modal-phone').value;
+  var msg = encodeURIComponent('مرحبا! أنا ' + (name||'') + ' وأريد الحصول على العرض الخاص. رقمي: ' + (phone||''));
+  window.open('https://wa.me/970XXXXXXXX?text=' + msg, '_blank');
+  closeModal();
+}
+
+// Close modal on overlay click
+document.getElementById('modal').addEventListener('click', function(e){
+  if(e.target === this) closeModal();
+});
+</script>
+</body>
+</html>
